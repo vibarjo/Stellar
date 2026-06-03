@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-**(https://stellar-beryl.vercel.app)**
+**(https://vercel.com/vibarj/stellar/deployments)**
 
 ## 📋 Project Overview
 
