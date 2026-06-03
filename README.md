@@ -1,33 +1,37 @@
-# My Website
 
-A brief description of what your website does and who it's for.
 
 ## 🚀 Live Demo
 
-[![Vercel](https://vercel.com/button)](https://your-project-name.vercel.app)
+**[https://stellar-beryl.vercel.app](https://stellar-beryl.vercel.app)**
 
-**Direct link:** [https://your-project-name.vercel.app](https://your-project-name.vercel.app)
+## 📋 Project Overview
 
-## 📋 Features
+- **Status**: Ready ✅
+- **Deployed**: 1 minute ago
+- **Branch**: main
+- **Platform**: Vercel
 
-- Feature 1
-- Feature 2
-- Feature 3
+## 🛠️ Tech Stack
 
-## 🛠️ Built With
+- HTML5
+- CSS3
+- JavaScript
 
-- HTML5 / CSS3 / JavaScript
-- [Framework name if any]
+## 🚀 Deployment
 
-## 📦 Installation
+This project is automatically deployed to Vercel on every push to the `main` branch.
+
+**Deployment URL**: `https://stellar-beryl.vercel.app`
+
+## 📦 Run Locally
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/yourusername/stellar.git
 
-# Navigate to the project
-cd your-repo-name
+# Navigate to project
+cd stellar
 
-# Open in browser (for static sites)
+# Open in browser
 open index.html
 
