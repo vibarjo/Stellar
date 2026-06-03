@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-**[https://stellar-beryl.vercel.app](https://stellar-beryl.vercel.app)**
+**(https://stellar-beryl.vercel.app)**
 
 ## 📋 Project Overview
 
