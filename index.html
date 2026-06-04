@@ -6,16 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stellar Guppies - Premium Fish Selection</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Header -->
     <header>
         <nav class="navbar">
             <div class="container">
-                <div class="logo">Stellar Guppies</div>
-                <ul class="nav-links">
+                <div class="logo">🐠 Stellar Guppies</div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -29,15 +35,44 @@
             <div class="hero-content">
                 <h1>Welcome to Stellar Guppies</h1>
                 <p>Premium Quality Guppies for Your Aquarium</p>
-                <a href="#products" class="cta-button">Shop Now</a>
+                <a href="#categories" class="cta-button">Shop Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
         <div class="container">
-            <h2>Our Guppy Collections</h2>
+            <h2>Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="toggleCategory('guppies')">
+                    <div class="category-icon">🐠</div>
+                    <h3>Guppies</h3>
+                    <p>Colorful varieties</p>
+                </div>
+                <div class="category-card" onclick="toggleCategory('plants')">
+                    <div class="category-icon">🌿</div>
+                    <h3>Plants</h3>
+                    <p>Aquatic plants</p>
+                </div>
+                <div class="category-card" onclick="toggleCategory('food')">
+                    <div class="category-icon">🥘</div>
+                    <h3>Food & Medicine</h3>
+                    <p>Nutrition & care</p>
+                </div>
+                <div class="category-card" onclick="toggleCategory('accessories')">
+                    <div class="category-icon">🪨</div>
+                    <h3>Accessories</h3>
+                    <p>Tank equipment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guppies Products Section -->
+    <section id="guppies" class="products-section">
+        <div class="container">
+            <h2>🐠 Guppies Collection</h2>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">🐠</div>
@@ -71,12 +106,123 @@
         </div>
     </section>
 
+    <!-- Plants Section -->
+    <section id="plants" class="products-section">
+        <div class="container">
+            <h2>🌿 Aquatic Plants</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <h3>Java Moss</h3>
+                    <p>Perfect for creating natural habitat</p>
+                    <p class="price">$8.99 per bundle</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <h3>Amazon Sword</h3>
+                    <p>Large decorative plant species</p>
+                    <p class="price">$9.99 each</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <h3>Anubias Plant</h3>
+                    <p>Low maintenance hardy plant</p>
+                    <p class="price">$7.99 each</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <h3>Water Lettuce</h3>
+                    <p>Floating plant for surface</p>
+                    <p class="price">$6.99 per set</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food & Medicine Section -->
+    <section id="food" class="products-section">
+        <div class="container">
+            <h2>🥘 Food & Medicine</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🥘</div>
+                    <h3>Premium Fish Food</h3>
+                    <p>Nutritious flakes for daily feeding</p>
+                    <p class="price">$5.99 per container</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💊</div>
+                    <h3>Water Conditioner</h3>
+                    <p>Remove chlorine and harmful chemicals</p>
+                    <p class="price">$9.99 per bottle</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💊</div>
+                    <h3>Fish Disease Treatment</h3>
+                    <p>Complete medication kit</p>
+                    <p class="price">$14.99 per kit</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🥘</div>
+                    <h3>Spirulina Pellets</h3>
+                    <p>High protein specialty food</p>
+                    <p class="price">$7.99 per container</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section id="accessories" class="products-section">
+        <div class="container">
+            <h2>🪨 Accessories & Equipment</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🪨</div>
+                    <h3>Decorative Rocks</h3>
+                    <p>Natural aquarium rocks set</p>
+                    <p class="price">$11.99 per set</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💨</div>
+                    <h3>Air Pump</h3>
+                    <p>Quiet and efficient aeration</p>
+                    <p class="price">$19.99 each</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌡️</div>
+                    <h3>Thermometer</h3>
+                    <p>Accurate digital temperature gauge</p>
+                    <p class="price">$6.99 each</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🪴</div>
+                    <h3>Filter Media</h3>
+                    <p>Replacement filter cartridges</p>
+                    <p class="price">$8.99 per pack</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2>About Stellar Guppies</h2>
             <div class="about-content">
-                <p>We are passionate about providing the highest quality guppies to aquarium enthusiasts around the world. With over a decade of breeding experience, we guarantee healthy, vibrant fish that will enhance any aquarium.</p>
+                <p>We are passionate about providing the highest quality guppies and aquarium products to aquarium enthusiasts around the world. With over a decade of breeding experience, we guarantee healthy, vibrant fish that will enhance any aquarium.</p>
                 <ul class="features">
                     <li>✓ Healthy & Well-Bred Fish</li>
                     <li>✓ Fast & Secure Shipping</li>
@@ -115,5 +261,7 @@
             <p>&copy; 2024 Stellar Guppies. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
-                        </html>
+    </html>
