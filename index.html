@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,7 @@
     <title>Stellar Guppies - Premium Fish Selection</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pay.google.com/gstatic/js/platform.js"></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -24,6 +24,7 @@
                     <li><a href="#categories">Categories</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cart" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -74,28 +75,28 @@
         <div class="container">
             <h2>🐠 Guppies Collection</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-product-id="1" data-product-name="Red Dragon Guppies" data-product-price="12.99">
                     <div class="product-image">🐠</div>
                     <h3>Red Dragon Guppies</h3>
                     <p>Stunning red coloration with flowing fins</p>
                     <p class="price">$12.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="2" data-product-name="Blue Diamond Guppies" data-product-price="14.99">
                     <div class="product-image">🐠</div>
                     <h3>Blue Diamond Guppies</h3>
                     <p>Mesmerizing blue and white patterns</p>
                     <p class="price">$14.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="3" data-product-name="Golden Flame Guppies" data-product-price="13.99">
                     <div class="product-image">🐠</div>
                     <h3>Golden Flame Guppies</h3>
                     <p>Beautiful golden and orange hues</p>
                     <p class="price">$13.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="4" data-product-name="Platinum Guppies" data-product-price="16.99">
                     <div class="product-image">🐠</div>
                     <h3>Platinum Guppies</h3>
                     <p>Rare metallic silver coloration</p>
@@ -111,28 +112,28 @@
         <div class="container">
             <h2>🌿 Aquatic Plants</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-product-id="5" data-product-name="Java Moss" data-product-price="8.99">
                     <div class="product-image">🌿</div>
                     <h3>Java Moss</h3>
                     <p>Perfect for creating natural habitat</p>
                     <p class="price">$8.99 per bundle</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="6" data-product-name="Amazon Sword" data-product-price="9.99">
                     <div class="product-image">🌿</div>
                     <h3>Amazon Sword</h3>
                     <p>Large decorative plant species</p>
                     <p class="price">$9.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="7" data-product-name="Anubias Plant" data-product-price="7.99">
                     <div class="product-image">🌿</div>
                     <h3>Anubias Plant</h3>
                     <p>Low maintenance hardy plant</p>
                     <p class="price">$7.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="8" data-product-name="Water Lettuce" data-product-price="6.99">
                     <div class="product-image">🌿</div>
                     <h3>Water Lettuce</h3>
                     <p>Floating plant for surface</p>
@@ -148,28 +149,28 @@
         <div class="container">
             <h2>🥘 Food & Medicine</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-product-id="9" data-product-name="Premium Fish Food" data-product-price="5.99">
                     <div class="product-image">🥘</div>
                     <h3>Premium Fish Food</h3>
                     <p>Nutritious flakes for daily feeding</p>
                     <p class="price">$5.99 per container</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="10" data-product-name="Water Conditioner" data-product-price="9.99">
                     <div class="product-image">💊</div>
                     <h3>Water Conditioner</h3>
                     <p>Remove chlorine and harmful chemicals</p>
                     <p class="price">$9.99 per bottle</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="11" data-product-name="Fish Disease Treatment" data-product-price="14.99">
                     <div class="product-image">💊</div>
                     <h3>Fish Disease Treatment</h3>
                     <p>Complete medication kit</p>
                     <p class="price">$14.99 per kit</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="12" data-product-name="Spirulina Pellets" data-product-price="7.99">
                     <div class="product-image">🥘</div>
                     <h3>Spirulina Pellets</h3>
                     <p>High protein specialty food</p>
@@ -185,28 +186,28 @@
         <div class="container">
             <h2>🪨 Accessories & Equipment</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-product-id="13" data-product-name="Decorative Rocks" data-product-price="11.99">
                     <div class="product-image">🪨</div>
                     <h3>Decorative Rocks</h3>
                     <p>Natural aquarium rocks set</p>
                     <p class="price">$11.99 per set</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="14" data-product-name="Air Pump" data-product-price="19.99">
                     <div class="product-image">💨</div>
                     <h3>Air Pump</h3>
                     <p>Quiet and efficient aeration</p>
                     <p class="price">$19.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="15" data-product-name="Thermometer" data-product-price="6.99">
                     <div class="product-image">🌡️</div>
                     <h3>Thermometer</h3>
                     <p>Accurate digital temperature gauge</p>
                     <p class="price">$6.99 each</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="16" data-product-name="Filter Media" data-product-price="8.99">
                     <div class="product-image">🪴</div>
                     <h3>Filter Media</h3>
                     <p>Replacement filter cartridges</p>
@@ -216,6 +217,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems" class="cart-items"></div>
+                <div id="emptyCart" class="empty-cart">Your cart is empty</div>
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+                <button id="payWithGooglePay" class="gpay-button">
+                    <i class="fas fa-mobile-alt"></i>
+                    Pay with Google Pay / UPI
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -258,10 +280,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Stellar Guppies. All rights reserved.</p>
+            <p>&copy; 2024 Stellar Guppies. All rights reserved. | Secure Payments with Google Pay & UPI</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="payment.js"></script>
 </body>
-    </html>
+</html>
