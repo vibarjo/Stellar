@@ -30,7 +30,6 @@ function toggleCategory(categoryId) {
     const section = document.getElementById(categoryId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
-        // Add a highlight effect
         section.style.animation = 'highlightSection 1s ease-out';
     }
 }
@@ -49,18 +48,88 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add to Cart functionality (basic)
+// Shopping Cart Management
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCartDisplay() {
+    const cartCount = document.querySelector('.cart-count');
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+    const cartItems = document.getElementById('cartItems');
+    const emptyCart = document.getElementById('emptyCart');
+    const cartTotal = document.getElementById('cartTotal');
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '';
+        emptyCart.style.display = 'block';
+        cartTotal.textContent = '0.00';
+    } else {
+        emptyCart.style.display = 'none';
+        cartItems.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+                <div class="item-details">
+                    <h4>${item.name}</h4>
+                    <p>$${item.price} x <input type="number" min="1" value="${item.quantity}" class="quantity-input" data-index="${index}"></p>
+                </div>
+                <div class="item-total">$${(item.price * item.quantity).toFixed(2)}</div>
+                <button class="remove-item" data-index="${index}">Remove</button>
+            </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotal.textContent = total.toFixed(2);
+        
+        // Add event listeners to quantity inputs
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', function() {
+                const index = this.dataset.index;
+                const quantity = parseInt(this.value) || 1;
+                if (quantity > 0) {
+                    cart[index].quantity = quantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                }
+            });
+        });
+        
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = this.dataset.index;
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            });
+        });
+    }
+}
+
+// Add to Cart functionality
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 addToCartButtons.forEach(button => {
     button.addEventListener('click', function() {
         const productCard = this.closest('.product-card');
-        const productName = productCard.querySelector('h3').textContent;
-        const productPrice = productCard.querySelector('.price').textContent;
+        const productId = productCard.dataset.productId;
+        const productName = productCard.dataset.productName;
+        const productPrice = parseFloat(productCard.dataset.productPrice);
         
-        // Simple notification
-        alert(`${productName} (${productPrice}) added to cart!`);
+        // Check if product already in cart
+        const existingItem = cart.find(item => item.id === productId);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: 1
+            });
+        }
         
-        // Optional: Add visual feedback
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+        
+        // Visual feedback
         this.textContent = 'Added ✓';
         this.style.backgroundColor = '#28a745';
         
@@ -69,6 +138,27 @@ addToCartButtons.forEach(button => {
             this.style.backgroundColor = '';
         }, 2000);
     });
+});
+
+// Cart Modal
+const cartModal = document.getElementById('cartModal');
+const cartLink = document.querySelector('.cart-link');
+const closeBtn = document.querySelector('.close');
+
+cartLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    updateCartDisplay();
+    cartModal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', function() {
+    cartModal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === cartModal) {
+        cartModal.style.display = 'none';
+    }
 });
 
 // Contact Form Submission
@@ -81,7 +171,6 @@ if (contactForm) {
         const email = this.querySelector('input[type="email"]').value;
         const message = this.querySelector('textarea').value;
         
-        // Simple validation
         if (name && email && message) {
             alert(`Thank you, ${name}! Your message has been sent. We will contact you soon at ${email}.`);
             this.reset();
@@ -91,25 +180,5 @@ if (contactForm) {
     });
 }
 
-// Optional: Add animation to sections when they come into view
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all product sections
-document.querySelectorAll('.products-section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+// Initialize cart display on page load
+updateCartDisplay();
